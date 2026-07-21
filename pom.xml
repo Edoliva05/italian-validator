@@ -1,0 +1,21 @@
+4.0.0
+
+    
+    com.edoardo
+    italian-validator
+    1.0.0
+    jar 
+
+    
+        17
+        17
+        UTF-8
+    
+
+    
+    
+        
+            org.junit.jupiter
+            junit-jupiter-api
+            5.10.0
+            test
