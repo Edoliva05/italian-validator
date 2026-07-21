@@ -8,6 +8,7 @@ public class ItalianValidator {
         1, 0, 5, 7, 9, 13, 15, 17, 19, 21, 2, 4, 18, 20, 11, 3, 6, 8, 12, 14, 16, 10, 22, 25, 24, 23
     };
     
+    //Metodo che controlla, dato un codice fiscale se sia valido o meno, restituisce un booleano
     public static boolean isValidCodiceFiscale(String codiceFiscale){
 
         //Se è null
@@ -52,6 +53,7 @@ public class ItalianValidator {
 
     }
 
+    //Metodo che dato un codice fiscale fa il return della data di nascita del soggetto
     public static LocalDate extractBirthDate(String codiceFiscale){
 
         if (!isValidCodiceFiscale(codiceFiscale)) {
@@ -126,6 +128,7 @@ public class ItalianValidator {
         
     }
 
+    //Metodo che dato un codice fiscale fa il return del genere del soggetto
     public static String extractGender(String codiceFiscale){
         if (!isValidCodiceFiscale(codiceFiscale)) {
             throw new InvalidCodiceFiscaleException("Impossibile estrarre dati: il Codice Fiscale " + codiceFiscale + " non è valido.");
@@ -142,6 +145,7 @@ public class ItalianValidator {
 
     }
 
+    //Metodo che dato un codice fiscale fa il return del codice catastale del soggetto
     public static String extractCodiceCatastale(String codiceFiscale){
         if (!isValidCodiceFiscale(codiceFiscale)) {
             throw new InvalidCodiceFiscaleException("Impossibile estrarre dati: il Codice Fiscale " + codiceFiscale + " non è valido.");
