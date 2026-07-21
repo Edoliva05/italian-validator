@@ -125,4 +125,20 @@ public class ItalianValidator {
         return LocalDate.of(num_year, num_month, num_day);
         
     }
+
+    public static String extractGender(String codiceFiscale){
+        if (!isValidCodiceFiscale(codiceFiscale)) {
+            return null; 
+        }
+
+        String dayString = codiceFiscale.substring(9,11);
+        int num_day = Integer.parseInt(dayString);
+
+        if(num_day > 40){
+            return "f";
+        }
+        
+        return "m";
+
+    }
 }
