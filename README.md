@@ -27,14 +27,16 @@ Se vuoi provarlo in locale, ti basta avere Java e Maven installati.
 
 **Per avviarlo in modalità sviluppo:**
 ```bash
-git clone [https://github.com/Edoliva05/italian-validator.git](https://github.com/Edoliva05/italian-validator.git)
+git clone https://github.com/Edoliva05/italian-validator.git
 cd italian-validator
 mvn spring-boot:run
+```
 
 **Per compilare l'eseguibile (il classico file .jar):**
 ```bash
 mvn clean package
-java -jar target/italian-validator-1.0.0.jar'''
+java -jar target/italian-validator-1.0.0.jar
+```
 
 ## Interfaccia Swagger
 
