@@ -1,21 +1,26 @@
-4.0.0
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-    
-    com.edoardo
-    italian-validator
-    1.0.0
-    jar 
+    <groupId>com.edoardo</groupId>
+    <artifactId>italian-validator</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
-    
-        17
-        17
-        UTF-8
-    
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-    
-    
-        
-            org.junit.jupiter
-            junit-jupiter-api
-            5.10.0
-            test
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
