@@ -1,5 +1,7 @@
 package com.edoardo.validator;
 
+import java.time.LocalDate;
+
 public class ItalianValidator {
 
     private static final int[] VALORI_DISPARI = {
@@ -48,5 +50,79 @@ public class ItalianValidator {
 
         return controlCharacter == effectiveControlCharacter;
 
+    }
+
+    public static LocalDate extractBirthDate(String codiceFiscale){
+
+        if (!isValidCodiceFiscale(codiceFiscale)) {
+            return null; 
+        }
+
+        //Estraiamo i dati per poi passare ai controlli
+        String yearString = codiceFiscale.substring(6,8);
+        char monthString = (codiceFiscale.charAt(8));
+        String dayString = codiceFiscale.substring(9,11);
+
+        //DAY
+        int num_day = Integer.parseInt(dayString);
+        //caso donna
+        if(num_day > 40){
+            num_day -= 40;
+        }
+
+        //MONTH
+        int num_month = 0;
+        switch(monthString){
+            case 'A':
+                num_month = 1;
+                break;
+            case 'B':
+                num_month = 2;
+                break;
+            case 'C':
+                num_month = 3;
+                break;
+            case 'D':
+                num_month = 4;
+                break;
+            case 'E':
+                num_month = 5;
+                break;
+            case 'H':
+                num_month = 6;
+                break;
+            case 'L':
+                num_month = 7;
+                break;
+            case 'M':
+                num_month = 8;
+                break;
+            case 'P':
+                num_month = 9;
+                break;
+            case 'R':
+                num_month = 10;
+                break;
+            case 'S':
+                num_month = 11;
+                break;
+            case 'T':
+                num_month = 12;
+                break;
+        }
+
+        //YEAR
+        int num_year = Integer.parseInt(yearString);
+        String year;
+        if(num_year > 30){
+            year = "19" + yearString;
+        }else{
+            year = "20" + yearString;
+        }
+
+        num_year = Integer.parseInt(year);
+
+        return LocalDate.of(num_year, num_month, num_day);
+        
     }
 }

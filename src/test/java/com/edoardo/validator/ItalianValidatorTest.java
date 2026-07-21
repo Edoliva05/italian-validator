@@ -1,5 +1,8 @@
 package com.edoardo.validator;
 
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -46,6 +49,16 @@ public class ItalianValidatorTest {
         String cf = "RSSMRA80A01H501A";
         boolean result = ItalianValidator.isValidCodiceFiscale(cf);
         assertFalse(result, "Il metodo dovrebbe restituire false se il carattere di controllo finale è sbagliato");
+    }
+
+    @Test
+    void shouldExtractCorrectDateFromCodiceFiscale(){
+        String cf = "RSSMRA80A01H501U";
+        LocalDate dataAttesa = LocalDate.of(1980, 1, 1);
+        LocalDate dataEstratta = ItalianValidator.extractBirthDate(cf);
+
+        assertEquals(dataAttesa, dataEstratta, "Il metodo dovrebbe restituire il 1 Gennaio 1980");
+
     }
 
 }
