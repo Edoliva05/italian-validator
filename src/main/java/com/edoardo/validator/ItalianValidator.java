@@ -55,7 +55,7 @@ public class ItalianValidator {
     public static LocalDate extractBirthDate(String codiceFiscale){
 
         if (!isValidCodiceFiscale(codiceFiscale)) {
-            return null; 
+            throw new InvalidCodiceFiscaleException("Impossibile estrarre dati: il Codice Fiscale " + codiceFiscale + " non è valido.");
         }
 
         //Estraiamo i dati per poi passare ai controlli
@@ -128,7 +128,7 @@ public class ItalianValidator {
 
     public static String extractGender(String codiceFiscale){
         if (!isValidCodiceFiscale(codiceFiscale)) {
-            return null; 
+            throw new InvalidCodiceFiscaleException("Impossibile estrarre dati: il Codice Fiscale " + codiceFiscale + " non è valido.");
         }
 
         String dayString = codiceFiscale.substring(9,11);
@@ -144,7 +144,7 @@ public class ItalianValidator {
 
     public static String extractCodiceCatastale(String codiceFiscale){
         if (!isValidCodiceFiscale(codiceFiscale)) {
-            return null; 
+            throw new InvalidCodiceFiscaleException("Impossibile estrarre dati: il Codice Fiscale " + codiceFiscale + " non è valido.");
         }
 
         return codiceFiscale.substring(11,15);
