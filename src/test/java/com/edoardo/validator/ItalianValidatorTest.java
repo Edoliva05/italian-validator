@@ -68,4 +68,11 @@ public class ItalianValidatorTest {
         assertEquals("m", gender, "Il metodo dovrebbe restituire la string m");
     }
 
+    @Test
+    void shouldExtractCodiceCatastaleFromCodiceFiscale(){
+        String cf = "RSSMRA80A01H501U";
+        String code = ItalianValidator.extractCodiceCatastale(cf);
+        assertEquals("H501", code, "Il metodo dovrebbe restituire il codice catastale corretto");
+    }
+
 }

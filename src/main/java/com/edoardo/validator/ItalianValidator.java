@@ -137,8 +137,17 @@ public class ItalianValidator {
         if(num_day > 40){
             return "f";
         }
-        
+
         return "m";
+
+    }
+
+    public static String extractCodiceCatastale(String codiceFiscale){
+        if (!isValidCodiceFiscale(codiceFiscale)) {
+            return null; 
+        }
+
+        return codiceFiscale.substring(11,15);
 
     }
 }
