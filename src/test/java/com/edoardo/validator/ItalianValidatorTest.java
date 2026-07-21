@@ -41,4 +41,11 @@ public class ItalianValidatorTest {
         assertTrue(result, "Il metodo dovrebbe restituire true anche se un CF contiene spazi ai bordi");
     }
 
+    @Test
+    void shouldReturnFalseWhenTheControlCharacterIsWrong(){
+        String cf = "RSSMRA80A01H501A";
+        boolean result = ItalianValidator.isValidCodiceFiscale(cf);
+        assertFalse(result, "Il metodo dovrebbe restituire false se il carattere di controllo finale è sbagliato");
+    }
+
 }
