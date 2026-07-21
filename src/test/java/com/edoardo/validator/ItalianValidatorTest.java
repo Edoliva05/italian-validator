@@ -20,4 +20,25 @@ public class ItalianValidatorTest {
         assertFalse(result, "Il metodo dovrebbe restituire false per un CF troppo corto");
     }
 
+    @Test
+    void shouldReturnFalseWhenCodiceFiscaleIsTooLong(){
+        String long_cf = "RSSMRA80A01H501UUU";
+        boolean result = ItalianValidator.isValidCodiceFiscale(long_cf);
+        assertFalse(result, "Il metodo dovrebbe restituire false per un CF troppo lungo");
+    }
+
+    @Test
+    void shouldReturnFalseWhenCodiceFiscaleContainsSpecialCharacters(){
+        String invalid_cf = "RSSMRA80@01H501U";
+        boolean result = ItalianValidator.isValidCodiceFiscale(invalid_cf);
+        assertFalse(result, "Il metodo dovrebbe restituire false se un CF contiene caratteri speciali");
+    }
+
+    @Test
+    void shouldReturnTrueWhenCodiceFiscaleHasPaddingSpaces(){
+        String cf = "  RSSMRA80A01H501U ";
+        boolean result = ItalianValidator.isValidCodiceFiscale(cf);
+        assertTrue(result, "Il metodo dovrebbe restituire true anche se un CF contiene spazi ai bordi");
+    }
+
 }
