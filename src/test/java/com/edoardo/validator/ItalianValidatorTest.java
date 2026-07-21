@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -74,6 +75,16 @@ public class ItalianValidatorTest{
         String cf = "RSSMRA80A01H501U";
         String code = ItalianValidator.extractCodiceCatastale(cf);
         assertEquals("H501", code, "Il metodo dovrebbe restituire il codice catastale corretto");
+    }
+
+    @Test
+    void shouldThrowExceptionWhenExtractingFromInvalidCodiceFiscale(){
+        String cf = "RSSMRA80A01H501A"; 
+
+        Exception exception = assertThrows(InvalidCodiceFiscaleException.class, () -> {
+            ItalianValidator.extractBirthDate(cf);
+        });
+
     }
 
 }
